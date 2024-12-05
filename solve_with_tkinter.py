@@ -1,11 +1,11 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# Create the Tkinter window
+# Create the Tkinter window.
 parent = tk.Tk()
 parent.title("Sudoku Solver")
 
-# random sudoku I take from the internet
+# random sudoku I took from the internet.
 grid = [[9, 2, 0, 0, 0, 0, 0, 0, 5],
         [0, 0, 3, 0, 7, 8, 4, 0, 0],
         [0, 0, 0, 6, 0, 0, 0, 0, 0],
@@ -16,7 +16,7 @@ grid = [[9, 2, 0, 0, 0, 0, 0, 0, 5],
         [0, 0, 8, 0, 3, 9, 7, 0, 0],
         [0, 0, 0, 0, 1, 0, 0, 0, 0]]
 
-# Create a 9x9 grid of entry widgets
+# Create a 9x9 grid of entry widgets.
 entries = [[None for i in range(9)] for i in range(9)]
 
 for row in range(9):
@@ -40,7 +40,7 @@ for row in range(9):
 # is valid or not. 
 def valid(grid, row, col, k):
 
-    # First assigns all the case were true
+    # First assigns all the case were true.
     not_in_row = True
     not_in_col = True
     not_in_sub_grid = True
@@ -64,28 +64,28 @@ def valid(grid, row, col, k):
     return not_in_row and not_in_col and not_in_sub_grid
 
 
-# Backtrack every possible cases for suitable number in the grid
+# Backtrack every possible cases for suitable number in the grid.
 def back_tracking(grid, row = 0, col = 0):
     # Base case
     # If check all the board, return True
-    # Which is there is solution for the board
+    # Which is there is solution for the board.
     if row == 9:
         return True
     
-    # If the column exceed 9, start checking the next row
+    # If the column exceed 9, start checking the next row.
     elif col == 9:
         return back_tracking(grid, row + 1, 0)
     
     # If that position is already filled with number,
-    # move to the next column 
+    # move to the next column .
     elif  grid[row][col] != 0:
         return back_tracking(grid, row, col + 1)
 
     # When that position is blank,
-    # Plug the number in (start from 1)
+    # Plug the number in (start from 1).
     # If it's met the condition, check the next position
     # until if it's not met, backtrack to the latest position 
-    # and change increase the number by 1 until it suitable the case 
+    # and change increase the number by 1 until it suitable the case .
 
     else:
         # for i in range(1, 10):
@@ -119,7 +119,7 @@ def back_tracking(grid, row = 0, col = 0):
         
         return False
 
-# Solve and display result 
+# Solve and display result.
 
 # if back_tracking(grid, 0, 0):
 #     for row in grid:
@@ -134,9 +134,9 @@ def solve():
     else:
         messagebox.showerror("Failure", "There is no solution!")
 
-# Add a "Solve" button
+# Add a "Solve" button.
 solve_button = tk.Button(parent, text="Solve", command = solve, font = ('Arial', 14))
 solve_button.grid(row = 9, column=0, columnspan = 9)
 
-# Run the Tkinter main loop
+# Run the Tkinter main loop.
 parent.mainloop()
