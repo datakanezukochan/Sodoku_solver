@@ -1,7 +1,7 @@
 import tkinter
 
 
-# random sudoku I take from the internet
+# random sudoku I took from the internet.
 grid = [[9, 2, 0, 0, 0, 0, 0, 0, 5],
         [0, 0, 3, 0, 7, 8, 4, 0, 0],
         [0, 0, 0, 6, 0, 0, 0, 0, 0],
